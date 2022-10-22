@@ -14,10 +14,10 @@ For storing all the HTML templates
 
 Contains all the server-side code
 
-### controller
+## controller folder
 
 deals with user requests
 
-### model
+## model folder
 
 handles mongoBD data.
