@@ -21,3 +21,11 @@ deals with user requests
 ## model folder
 
 handles mongoBD data.
+
+## database folder
+
+handles database connection
+
+## routes folder
+
+handles all the routes
