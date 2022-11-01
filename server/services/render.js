@@ -1,9 +1,13 @@
 const axios = require("axios");
 
+exports.loginRoutes = (req, res) => {
+  res.render("login");
+};
+
 exports.homeRoutes = (req, res) => {
   // Make a GET request to the API users
   axios.get("http://localhost:3000/api/users").then(function (response) {
-    res.render("index", { users: response.data });
+    res.render("adminDashboard", { users: response.data });
   });
 };
 

@@ -7,7 +7,13 @@ const controller = require("../controller/controller");
  * @description Root Route
  * @method GET /
  */
-route.get("/", services.homeRoutes);
+route.get("/", services.loginRoutes);
+
+/**
+ * @description Admin Dashboard Route
+ * @method GET /
+ */
+route.get("/adminDashboard", services.homeRoutes);
 
 /**
  * @description Add User Route

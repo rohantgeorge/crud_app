@@ -315,7 +315,7 @@ select::-ms-expand {
 
 #login-page {
   background-color: #f0f2f5;
-  background-image: url(../images/login-bg.jpg);
+  background-image: url(../img/login-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100%;
