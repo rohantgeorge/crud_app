@@ -26,29 +26,6 @@ a {
   font-family: "PT Sans", sans-serif;
 }
 
-.container {
-  max-width: 1024px;
-  margin: auto;
-}
-
-.nav-brand {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.d-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.text-center {
-  text-align: center;
-}
-
 .border-shadow {
   border: 1px solid var(--border-btn);
   box-shadow: 1px 3px 10px #e9ecef;
@@ -74,7 +51,7 @@ a {
 }
 
 #header nav {
-  background-color: #06d6a0;
+  background-color: #f6f6f6;
   padding: 1em 0;
   width: 100%;
 }
@@ -91,6 +68,11 @@ a {
 
 #site-main .container form {
   margin: 2em 0;
+}
+
+.link {
+  color: #012526;
+  font-weight: 700;
 }
 
 table {
@@ -187,11 +169,22 @@ a.delete:hover .text-gradient {
 }
 
 #update_user .form-group,
+#update_user h4,
+#update_availability .form-group,
+#update_availability h4,
+#add_user h4,
 #add_user .form-group {
   margin: 0.4em 0;
 }
 
+#update_user h4,
+#update_availability h4,
+#add_user h4 {
+  padding: 0.4em 0em;
+}
+
 #update_user .form-group input[type="text"],
+#update_availability .form-group input[type="text"],
 #add_user .form-group input[type="text"] {
   width: 100%;
   padding: 0.6em 1em;
@@ -203,6 +196,7 @@ a.delete:hover .text-gradient {
 }
 
 #update_user .form-group .radio,
+#update_availability .form-group .radio,
 #add_user .form-group .radio {
   margin: 1em 2em;
 }
@@ -222,7 +216,7 @@ a.delete:hover .text-gradient {
   width: 1em;
   height: 1em;
   position: relative;
-  top: -0em;
+  top: 5px;
   margin-right: 0.5em;
   vertical-align: top;
   cursor: pointer;
@@ -248,6 +242,7 @@ a.delete:hover .text-gradient {
 }
 
 #update_user .form-group .btn,
+#update_availability .form-group .btn,
 #add_user .form-group .btn {
   width: 100%;
   padding: 0.9em 1em;
@@ -261,6 +256,7 @@ a.delete:hover .text-gradient {
 }
 
 #update_user .form-group .btn:hover,
+#update_availability .form-group .btn:hover,
 #add_user .form-group .btn:hover {
   background-color: var(--dark);
   color: var(--border);
@@ -399,3 +395,61 @@ select::-ms-expand {
   color: #1d2030;
 }
 /********************** Login Page Styling End **********************/
+/********************** Employee Page Styling Start **********************/
+
+#employee_legend span.current-color {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: powderblue;
+}
+
+#employee_legend span.availability-color {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: darkseagreen;
+}
+
+#employee_legend .update {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+#employee_info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+#employee_info .employee_right_panel {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.employee_right_panel table .current_bg {
+  background-color: powderblue;
+}
+
+.employee_right_panel table .available_bg {
+  background-color: darkseagreen;
+}
+/********************** Employee Page Styling End **********************/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .row .form-group .radio {
+    margin: 1em 4em 1em 0em !important;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

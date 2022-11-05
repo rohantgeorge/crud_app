@@ -16,11 +16,41 @@ exports.create = (req, res) => {
   const user = new Userdb({
     name: req.body.name,
     email: req.body.email,
-    gender: req.body.gender,
-    clockInTime: req.body.clockInTime,
-    clockOutTime: req.body.clockOutTime,
-    datepicker: req.body.datepicker,
+    jobType: req.body.jobType,
     status: req.body.status,
+
+    sundayClockInTime: req.body.sundayClockInTime,
+    mondayClockInTime: req.body.mondayClockInTime,
+    tuesdayClockInTime: req.body.tuesdayClockInTime,
+    wednesdayClockInTime: req.body.wednesdayClockInTime,
+    thursdayClockInTime: req.body.thursdayClockInTime,
+    fridayClockInTime: req.body.fridayClockInTime,
+    saturdayClockInTime: req.body.saturdayClockInTime,
+
+    sundayClockOutTime: req.body.sundayClockOutTime,
+    mondayClockOutTime: req.body.mondayClockOutTime,
+    tuesdayClockOutTime: req.body.tuesdayClockOutTime,
+    wednesdayClockOutTime: req.body.wednesdayClockOutTime,
+    thursdayClockOutTime: req.body.thursdayClockOutTime,
+    fridayClockOutTime: req.body.fridayClockOutTime,
+    saturdayClockOutTime: req.body.saturdayClockOutTime,
+
+    sundayAvailabilityClockInTime: req.body.sundayAvailabilityClockInTime,
+    mondayAvailabilityClockInTime: req.body.mondayAvailabilityClockInTime,
+    tuesdayAvailabilityClockInTime: req.body.tuesdayAvailabilityClockInTime,
+    wednesdayAvailabilityClockInTime: req.body.wednesdayAvailabilityClockInTime,
+    thursdayAvailabilityClockInTime: req.body.thursdayAvailabilityClockInTime,
+    fridayAvailabilityClockInTime: req.body.fridayAvailabilityClockInTime,
+    saturdayAvailabilityClockInTime: req.body.saturdayAvailabilityClockInTime,
+
+    sundayAvailabilityClockOutTime: req.body.sundayAvailabilityClockOutTime,
+    mondayAvailabilityClockOutTime: req.body.mondayAvailabilityClockOutTime,
+    tuesdayAvailabilityClockOutTime: req.body.tuesdayAvailabilityClockOutTime,
+    wednesdayAvailabilityClockOutTime:
+      req.body.wednesdayAvailabilityClockOutTime,
+    thursdayAvailabilityClockOutTime: req.body.thursdayAvailabilityClockOutTime,
+    fridayAvailabilityClockOutTime: req.body.fridayAvailabilityClockOutTime,
+    saturdayAvailabilityClockOutTime: req.body.saturdayAvailabilityClockOutTime,
   });
 
   // Save the data in the database

@@ -13,7 +13,19 @@ route.get("/", services.loginRoutes);
  * @description Admin Dashboard Route
  * @method GET /
  */
-route.get("/adminDashboard", services.homeRoutes);
+route.get("/admin", services.homeRoutes);
+
+/**
+ * @description Single Emoloyee Route
+ * @method GET /
+ */
+route.get("/employee", services.employeeRoutes);
+
+/**
+ * @description Colleague List Route
+ * @method GET /
+ */
+route.get("/colleagues", services.colleaguesRoutes);
 
 /**
  * @description Add User Route
@@ -26,6 +38,12 @@ route.get("/add_user", services.addRoutes);
  * @method GET /update_user
  */
 route.get("/update_user", services.updateRoutes);
+
+/**
+ * @description Update Availability Route
+ * @method GET /update_availability
+ */
+route.get("/update_availability", services.availabilityRoutes);
 
 // API
 route.post("/api/users", controller.create);

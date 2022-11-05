@@ -2,70 +2,319 @@
 <form action="/api/users" id="add_user" method="POST">
   <div class="new_user">
     <div class="form-group">
-      <label for="name" class="text-light">Name</label>
+      <label for="name" class="text-dark">Name</label>
       <input type="hidden" name="id" value="" />
       <input type="text" name="name" value="" placeholder="Rohan T George" />
     </div>
 
     <div class="form-group">
-      <label for="email" class="text-light">Email</label>
+      <label for="email" class="text-dark">Email</label>
       <input type="text" name="email" value="" placeholder="rohan@gmail.com" />
     </div>
 
     <div class="form-group">
-      <label for="gender" class="text-light">Gender</label>
+      <label for="jobType" class="text-dark">Job Type</label>
       <div class="radio inline">
-        <input type="radio" id="radio-2" name="gender" value="Male" />
-        <label for="radio-2" class="text-light radio-label">Male</label>
+        <input type="radio" id="radio-2" name="jobType" value="Full-time" />
+        <label for="radio-2" class="text-dark radio-label">Full-time</label>
       </div>
       <div class="radio inline">
-        <input type="radio" id="radio-3" name="gender" value="Female" />
-        <label for="radio-3" class="text-light radio-label">Female</label>
+        <input type="radio" id="radio-3" name="jobType" value="Part-time" />
+        <label for="radio-3" class="text-dark radio-label">Part-time</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="status" class="text-light">Status</label>
+      <label for="status" class="text-dark">Status</label>
       <div class="radio inline">
         <input type="radio" id="radio-4" name="status" value="Active" />
-        <label for="radio-4" class="text-light radio-label">Active</label>
+        <label for="radio-4" class="text-dark radio-label">Active</label>
       </div>
       <div class="radio inline">
         <input type="radio" id="radio-5" name="status" value="Inactive" />
-        <label for="radio-5" class="text-light radio-label">Inactive</label>
+        <label for="radio-5" class="text-dark radio-label">Inactive</label>
       </div>
     </div>
 
-    <div class="form-group timepicker_div">
-      <label for="clockInTime" class="text-light">Clock-in Time</label>
-      <input
-        name="clockInTime"
-        type="text"
-        id="clockInTime"
-        class="form-control timepicker"
-      />
+    <div class="row d-flex">
+      <div
+        class="col-lg-4 d-flex flex-wrap flex-column justify-content-between"
+      >
+        <h4>Sunday</h4>
+        <h4>Monday</h4>
+        <h4>Tuesday</h4>
+        <h4>Wednesday</h4>
+        <h4>Thursday</h4>
+        <h4>Friday</h4>
+        <h4>Saturday</h4>
+      </div>
+      <!--  -->
+      <div class="col-lg-4 d-flex flex-wrap">
+        <div class="form-group timepicker_div">
+          <input
+            name="sundayClockInTime"
+            type="text"
+            id="sundayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="mondayClockInTime"
+            type="text"
+            id="mondayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="tuesdayClockInTime"
+            type="text"
+            id="tuesdayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="wednesdayClockInTime"
+            type="text"
+            id="wednesdayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="thursdayClockInTime"
+            type="text"
+            id="thursdayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="fridayClockInTime"
+            type="text"
+            id="fridayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="saturdayClockInTime"
+            type="text"
+            id="saturdayClockInTime"
+            class="form-control timepicker"
+            placeholder="Clock-in Time"
+          />
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-lg-4 d-flex flex-wrap">
+        <div class="form-group timepicker_div">
+          <input
+            name="sundayClockOutTime"
+            type="text"
+            id="sundayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="mondayClockOutTime"
+            type="text"
+            id="mondayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="tuesdayClockOutTime"
+            type="text"
+            id="tuesdayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="wednesdayClockOutTime"
+            type="text"
+            id="wednesdayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="thursdayClockOutTime"
+            type="text"
+            id="thursdayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="fridayClockOutTime"
+            type="text"
+            id="fridayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="saturdayClockOutTime"
+            type="text"
+            id="saturdayClockOutTime"
+            class="form-control timepicker"
+            placeholder="Clock-out Time"
+          />
+        </div>
+      </div>
     </div>
 
-    <div class="form-group timepicker_div">
-      <label for="clockOutTime" class="text-light">Clock-out Time</label>
-      <input
-        name="clockOutTime"
-        type="text"
-        id="clockOutTime"
-        class="form-control timepicker"
-      />
-    </div>
-
-    <div class="form-group">
-      <label class="text-light" for="datepicker"
-        >Pick a Date
-        <input
-          type="text"
-          name="datepicker"
-          id="datepicker"
-          autocomplete="off"
-        />
-      </label>
+    <div class="row d-flex">
+      <!--  -->
+      <div class="col-lg-4 d-flex flex-wrap">
+        <div class="form-group timepicker_div">
+          <input
+            name="sundayAvailabilityClockInTime"
+            type="text"
+            id="sundayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="mondayAvailabilityClockInTime"
+            type="text"
+            id="mondayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="tuesdayAvailabilityClockInTime"
+            type="text"
+            id="tuesdayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="wednesdayAvailabilityClockInTime"
+            type="text"
+            id="wednesdayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="thursdayAvailabilityClockInTime"
+            type="text"
+            id="thursdayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="fridayAvailabilityClockInTime"
+            type="text"
+            id="fridayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="saturdayAvailabilityClockInTime"
+            type="text"
+            id="saturdayAvailabilityClockInTime"
+            value=""
+            hidden
+          />
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-lg-4 d-flex flex-wrap">
+        <div class="form-group timepicker_div">
+          <input
+            name="sundayAvailabilityClockOutTime"
+            type="text"
+            id="sundayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="mondayAvailabilityClockOutTime"
+            type="text"
+            id="mondayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="tuesdayAvailabilityClockOutTime"
+            type="text"
+            id="tuesdayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="wednesdayAvailabilityClockOutTime"
+            type="text"
+            id="wednesdayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="thursdayAvailabilityClockOutTime"
+            type="text"
+            id="thursdayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="fridayAvailabilityClockOutTime"
+            type="text"
+            id="fridayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+        <div class="form-group timepicker_div">
+          <input
+            name="saturdayAvailabilityClockOutTime"
+            type="text"
+            id="saturdayAvailabilityClockOutTime"
+            value=""
+            hidden
+          />
+        </div>
+      </div>
     </div>
 
     <div class="form-group">

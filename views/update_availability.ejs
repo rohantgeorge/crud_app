@@ -1,0 +1,183 @@
+<!-- Include Header -->
+<%- include('include/_header') %>
+<!-- /Include Header -->
+
+<!-- Main Site -->
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex-justify-between">
+      <div class="filter">
+        <a href="/employee?id=<%= user?._id %>"
+          ><i class="fas fa-angle-double-left"></i> Go Back
+        </a>
+      </div>
+    </div>
+    <div class="form-title text-center">
+      <h2 class="text-dark">Update Availability</h2>
+      <span class="text-dark"
+        >Use the below form to update your availability</span
+      >
+    </div>
+
+    <!-- Form Handling -->
+    <form id="update_availability">
+      <% {console.log(user);} %>
+      <div class="new_user">
+        <div class="row d-flex">
+          <div
+            class="col-lg-4 d-flex flex-wrap flex-column justify-content-between"
+          >
+            <h4>Sunday</h4>
+            <h4>Monday</h4>
+            <h4>Tuesday</h4>
+            <h4>Wednesday</h4>
+            <h4>Thursday</h4>
+            <h4>Friday</h4>
+            <h4>Saturday</h4>
+          </div>
+          <!--  -->
+          <div class="col-lg-4 d-flex flex-wrap">
+            <div class="form-group timepicker_div">
+              <input
+                name="sundayAvailabilityClockInTime"
+                type="text"
+                id="sundayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.sundayAvailabilityClockInTime%>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="mondayAvailabilityClockInTime"
+                type="text"
+                id="mondayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.mondayAvailabilityClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="tuesdayAvailabilityClockInTime"
+                type="text"
+                id="tuesdayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.tuesdayAvailabilityClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="wednesdayAvailabilityClockInTime"
+                type="text"
+                id="wednesdayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.wednesdayAvailabilityClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="thursdayAvailabilityClockInTime"
+                type="text"
+                id="thursdayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.thursdayAvailabilityClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="fridayAvailabilityClockInTime"
+                type="text"
+                id="fridayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.fridayAvailabilityClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="saturdayAvailabilityClockInTime"
+                type="text"
+                id="saturdayAvailabilityClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.saturdayAvailabilityClockInTime %>"
+              />
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-lg-4 d-flex flex-wrap">
+            <div class="form-group timepicker_div">
+              <input
+                name="sundayAvailabilityClockOutTime"
+                type="text"
+                id="sundayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.sundayAvailabilityClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="mondayAvailabilityClockOutTime"
+                type="text"
+                id="mondayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.mondayAvailabilityClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="tuesdayAvailabilityClockOutTime"
+                type="text"
+                id="tuesdayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.tuesdayAvailabilityClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="wednesdayAvailabilityClockOutTime"
+                type="text"
+                id="wednesdayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.wednesdayAvailabilityClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="thursdayAvailabilityClockOutTime"
+                type="text"
+                id="thursdayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.thursdayAvailabilityClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="fridayAvailabilityClockOutTime"
+                type="text"
+                id="fridayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.fridayAvailabilityClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="saturdayAvailabilityClockOutTime"
+                type="text"
+                id="saturdayAvailabilityClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.saturdayAvailabilityClockOutTime %>"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+<!-- /Main Site -->
+
+<!-- Include Footer -->
+<%- include('include/_footer') %>
+<!-- /Include Footer -->

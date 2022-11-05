@@ -1,0 +1,91 @@
+<!-- Include Header -->
+<%- include('include/_header') %>
+<!-- /Include Header -->
+
+<!-- Main Site -->
+<main class="container main">
+  <div id="employee_legend" class="d-flex align-items-center mb-5">
+    <div class="w-75">
+      <h1 class="blue">Colleagues List</h1>
+    </div>
+    <div class="w-50">
+      <div class="input-group mb-3 justify-content-end">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Options</label
+          >
+        </div>
+        <select class="custom-select w-50" id="inputGroupSelect01">
+          <option selected>Select a day</option>
+          <option value="">Monday</option>
+          <option value="">Tuesday</option>
+          <option value="">Wednesday</option>
+          <option value="">Thursday</option>
+          <option value="">Friday</option>
+          <option value="">Saturday</option>
+          <option value="">Sunday</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div id="employee_info">
+    <div class="employee_right_panel w-100">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <!-- Current Schedule -->
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col">Hours</th>
+            <!-- Availability -->
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col">Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">Rohan T G</td>
+            <!-- Current Schedule -->
+            <td class="current_bg">08:00AM</td>
+            <td class="current_bg">04:00PM</td>
+            <td class="current_bg">8</td>
+            <!-- Availability -->
+            <td class="available_bg">08:00AM</td>
+            <td class="available_bg">04:00PM</td>
+            <td class="available_bg">8</td>
+          </tr>
+          <tr>
+            <td scope="row">Remya K S</td>
+            <!-- Current Schedule -->
+            <td class="current_bg">08:00AM</td>
+            <td class="current_bg">04:00PM</td>
+            <td class="current_bg">8</td>
+            <!-- Availability -->
+            <td class="available_bg">08:00AM</td>
+            <td class="available_bg">04:00PM</td>
+            <td class="available_bg">8</td>
+          </tr>
+          <tr>
+            <td scope="row">Amey A P</td>
+            <!-- Current Schedule -->
+            <td class="current_bg"></td>
+            <td class="current_bg"></td>
+            <td class="current_bg"></td>
+            <!-- Availability -->
+            <td class="available_bg"></td>
+            <td class="available_bg"></td>
+            <td class="available_bg"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- /Main Site -->
+
+<!-- Include Footer -->
+<%- include('include/_footer') %>
+<!-- /Include Footer -->

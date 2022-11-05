@@ -7,19 +7,20 @@
   <div class="container">
     <div class="box-nav d-flex-justify-between">
       <div class="filter">
-        <a href="/"><i class="fas fa-angle-double-left"></i> All Users </a>
+        <a href="/admin"><i class="fas fa-angle-double-left"></i> All Users </a>
       </div>
     </div>
     <div class="form-title text-center">
       <h2 class="text-dark">Update User</h2>
-      <span class="text-light">Use the below form to update an user</span>
+      <span class="text-dark">Use the below form to update an user</span>
     </div>
 
     <!-- Form Handling -->
-    <form id="update_user" method="POST">
+    <form id="update_user">
+      <% {console.log(user);} %>
       <div class="new_user">
         <div class="form-group">
-          <label for="name" class="text-light">Name</label>
+          <label for="name" class="text-dark">Name</label>
           <input type="hidden" name="id" value="<%= user._id %>" />
           <input
             type="text"
@@ -30,7 +31,7 @@
         </div>
 
         <div class="form-group">
-          <label for="email" class="text-light">Email</label>
+          <label for="email" class="text-dark">Email</label>
           <input
             type="text"
             name="email"
@@ -40,66 +41,177 @@
         </div>
 
         <div class="form-group">
-          <label for="gender" class="text-light">Gender</label>
+          <label for="jobType" class="text-dark">Job Type</label>
           <div class="radio inline">
-            <input type="radio" id="radio-2" name="gender" value="Male" <%=
-            user.gender == 'Male' ? 'checked' : '' %> />
-            <label for="radio-2" class="text-light radio-label">Male</label>
+            <input type="radio" id="radio-2" name="jobType" value="Full-time"
+            <%= user.jobType == 'Full-time' ? 'checked' : '' %> />
+            <label for="radio-2" class="text-dark radio-label">Full-time</label>
           </div>
           <div class="radio inline">
-            <input type="radio" id="radio-3" name="gender" value="Female" <%=
-            user.gender == 'Female' ? 'checked' : '' %> />
-            <label for="radio-3" class="text-light radio-label">Female</label>
+            <input type="radio" id="radio-3" name="jobType" value="Part-time"
+            <%= user.jobType == 'Part-time' ? 'checked' : '' %> />
+            <label for="radio-3" class="text-dark radio-label">Part-time</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="status" class="text-light">Status</label>
+          <label for="status" class="text-dark">Status</label>
           <div class="radio inline">
             <input type="radio" id="radio-4" name="status" value="Active" <%=
             user.status == 'Active' ? 'checked' : '' %> />
-            <label for="radio-4" class="text-light radio-label">Active</label>
+            <label for="radio-4" class="text-dark radio-label">Active</label>
           </div>
           <div class="radio inline">
             <input type="radio" id="radio-5" name="status" value="Inactive" <%=
             user.status == 'Inactive' ? 'checked' : '' %> />
-            <label for="radio-5" class="text-light radio-label">Inactive</label>
+            <label for="radio-5" class="text-dark radio-label">Inactive</label>
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="text-light" for="datepicker"
-            >Pick a Date
-            <input
-              type="text"
-              name="datepicker"
-              id="datepicker"
-              autocomplete="off"
-              value="<%= user.datepicker %>"
-            />
-          </label>
-        </div>
-
-        <div class="form-group timepicker_div">
-          <label for="clockInTime" class="text-light">Clock-in Time</label>
-          <input
-            name="clockInTime"
-            type="text"
-            id="clockInTime"
-            class="form-control timepicker"
-            value="<%= user.clockInTime %>"
-          />
-        </div>
-
-        <div class="form-group timepicker_div">
-          <label for="clockOutTime" class="text-light">Clock-out Time</label>
-          <input
-            name="clockOutTime"
-            type="text"
-            id="clockOutTime"
-            class="form-control timepicker"
-            value="<%= user.clockOutTime %>"
-          />
+        <div class="row d-flex">
+          <div
+            class="col-lg-4 d-flex flex-wrap flex-column justify-content-between"
+          >
+            <h4>Sunday</h4>
+            <h4>Monday</h4>
+            <h4>Tuesday</h4>
+            <h4>Wednesday</h4>
+            <h4>Thursday</h4>
+            <h4>Friday</h4>
+            <h4>Saturday</h4>
+          </div>
+          <!--  -->
+          <div class="col-lg-4 d-flex flex-wrap">
+            <div class="form-group timepicker_div">
+              <input
+                name="sundayClockInTime"
+                type="text"
+                id="sundayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.sundayClockInTime%>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="mondayClockInTime"
+                type="text"
+                id="mondayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.mondayClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="tuesdayClockInTime"
+                type="text"
+                id="tuesdayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.tuesdayClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="wednesdayClockInTime"
+                type="text"
+                id="wednesdayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.wednesdayClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="thursdayClockInTime"
+                type="text"
+                id="thursdayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.thursdayClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="fridayClockInTime"
+                type="text"
+                id="fridayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.fridayClockInTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="saturdayClockInTime"
+                type="text"
+                id="saturdayClockInTime"
+                class="form-control timepicker"
+                value="<%= user?.saturdayClockInTime %>"
+              />
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-lg-4 d-flex flex-wrap">
+            <div class="form-group timepicker_div">
+              <input
+                name="sundayClockOutTime"
+                type="text"
+                id="sundayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.sundayClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="mondayClockOutTime"
+                type="text"
+                id="mondayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.mondayClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="tuesdayClockOutTime"
+                type="text"
+                id="tuesdayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.tuesdayClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="wednesdayClockOutTime"
+                type="text"
+                id="wednesdayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.wednesdayClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="thursdayClockOutTime"
+                type="text"
+                id="thursdayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.thursdayClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="fridayClockOutTime"
+                type="text"
+                id="fridayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.fridayClockOutTime %>"
+              />
+            </div>
+            <div class="form-group timepicker_div">
+              <input
+                name="saturdayClockOutTime"
+                type="text"
+                id="saturdayClockOutTime"
+                class="form-control timepicker"
+                value="<%= user?.saturdayClockOutTime %>"
+              />
+            </div>
+          </div>
         </div>
 
         <div class="form-group">

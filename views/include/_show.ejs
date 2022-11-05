@@ -1,13 +1,14 @@
 <% for(var i = 0; i < users.length; i++) { %>
 
-<tr>
+<tr
+  data-date="<%= users[i].datepicker %>"
+  data-jobType="<%= users[i].jobType %>"
+>
   <td><%= i + 1 %></td>
-  <td><%= users[i].name %></td>
+  <td><a class="link" href="/employee?id=<%= users[i]._id %>"><%= users[i].name %></a></td>
   <td><%= users[i].email %></td>
-  <td><%= users[i].gender %></td>
-  <td><%= users[i].clockInTime %></td>
-  <td><%= users[i].clockOutTime %></td>
   <td><%= users[i].datepicker %></td>
+  <td><%= users[i].jobType %></td>
   <td>
     <a
       href="/update_user?id=<%= users[i]._id %>"
