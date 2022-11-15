@@ -1,4 +1,5 @@
 const axios = require("axios");
+const UserLogin = require("../model/login");
 
 exports.loginRoutes = (req, res) => {
   res.render("login");
@@ -7,7 +8,7 @@ exports.loginRoutes = (req, res) => {
 exports.homeRoutes = (req, res) => {
   // Make a GET request to the API users
   axios.get("http://localhost:3000/api/users").then(function (response) {
-    res.render("admin", { users: response.data });
+    res.render("admin", { allUsers: response.data });
   });
 };
 
@@ -35,26 +36,19 @@ exports.updateRoutes = (req, res) => {
     });
 };
 
-exports.availabilityRoutes = (req, res) => {
+exports.employeeRoutes = async (req, res) => {
   axios
     .get("http://localhost:3000/api/users", {
       params: { id: req.query.id },
     })
-    .then(function (userdata) {
-      res.render("update_availability", { user: userdata.data });
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-};
-
-exports.employeeRoutes = (req, res) => {
-  axios
-    .get("http://localhost:3000/api/users", {
-      params: { id: req.query.id },
-    })
-    .then(function (userdata) {
-      res.render("employee", { user: userdata.data });
+    .then(async function (userdata) {
+      // const getUser =await UserLogin.find({ email: userdata.data.email });
+      // console.log(getUser, "get");
+      res.render("employee", {
+        allUsers: userdata.data,
+        allUser: [userdata.data],
+        // admin: getUser?.isAdmin,
+      });
     })
     .catch((err) => {
       res.send(err);

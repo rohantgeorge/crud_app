@@ -13,6 +13,11 @@ var schema = new mongoose.Schema(
     },
     jobType: String,
     status: String,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "userLogin",
+      // require: true,
+    },
 
     sundayClockInTime: String,
     mondayClockInTime: String,

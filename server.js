@@ -23,12 +23,14 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 // set view engine
 app.set("view engine", "ejs");
-// app.set("views", path.resolve(__dirname, "views/ejs")); Required if templates are created in another folder inside views folder
+// app.set("views", path.resolve(__dirname, "views/ejs")); // Required if templates are created in another folder inside views folder
 
 // load assets
-app.use("/css", express.static(path.resolve(__dirname, "assets/css")));
-app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
-app.use("/img", express.static(path.resolve(__dirname, "assets/img")));
+// app.use("/css", express.static(path.resolve(__dirname, "assets/css")));
+// app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
+// app.use("/img", express.static(path.resolve(__dirname, "assets/img")));
+
+app.use(express.static(__dirname + "/assets"));
 
 // load routers
 app.use("/", userRoutes);

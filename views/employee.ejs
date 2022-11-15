@@ -6,13 +6,31 @@
 <main class="container main pt-5" id="employeeDashboard">
   <div id="employee_legend" class="row">
     <div class="col col-lg-8 position-relative">
-      <h1 class="blue m-0"><%= user?.name %></h1>
-      <p class="employee_position m-0"><%= user?.jobType %></p>
+      <span hidden class="blue m-0"><%= allUser[0]?._id %></span>
+      <h1 class="blue m-0"><%= allUser[0]?.name %></h1>
+      <p class="employee_position m-0"><%= allUser[0]?.jobType %></p>
       <a
-        href="/update_availability?id=<%= user?._id %>"
-        class="btn-border-shadow update"
+        href="javascript:void(0)"
+        class="btn-border-shadow update js-open-modal"
+        data-modal-id="availability"
         ><span class="text-gradient">
           <i class="fas fa-pencil-alt"></i> Edit Availability
+        </span></a
+      >
+      <a
+        href="javascript:void(0)"
+        class="btn-border-shadow update js-open-modal"
+        data-modal-id="transferTicket"
+        ><span class="text-gradient">
+          <i class="fas fa-pencil-alt"></i> Create a Transfer Request
+        </span></a
+      >
+      <a
+        href="javascript:void(0)"
+        class="btn-border-shadow update js-open-modal"
+        data-modal-id="swapTicket"
+        ><span class="text-gradient">
+          <i class="fas fa-pencil-alt"></i> Create a Swap Request
         </span></a
       >
     </div>
@@ -27,7 +45,10 @@
       </div>
     </div>
   </div>
-  <%- include('include/_employeeInfo') %>
+  <%- include('include/_employeeInfo') %> 
+  <%- include('include/availability') %>
+  <%- include('include/transfer') %>
+  <%- include('include/swap') %>
 </main>
 
 <!-- /Main Site -->

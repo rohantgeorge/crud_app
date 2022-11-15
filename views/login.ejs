@@ -17,14 +17,16 @@
           <!-- ./Brand logo -->
           <h3 class="text-center">Login to your account</h3>
           <!-- Login input start -->
-          <form action="http://localhost:3000/admin">
+
+          
+          <form action="/admin" method="post">
             <div class="form-group">
               <label for="loginEmail">Email address</label>
               <input
                 type="email"
                 class="form-control"
                 id="loginEmail"
-                name="loginEmail"
+                name="email"
                 aria-describedby="emailHelp"
               />
             </div>
@@ -34,7 +36,7 @@
                 type="password"
                 class="form-control"
                 id="loginPassword"
-                name="loginPassword"
+                name="password"
               />
             </div>
             <div class="form-group form-check mt-3">

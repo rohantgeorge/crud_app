@@ -5,12 +5,16 @@ const jwt = require("jsonwebtoken");
 const expressAsyncHandler = require("express-async-handler");
 
 // Create and save new user
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   // Validate the request
   if (!req.body) {
     res.status(400).send({ message: "Content can not be empty" });
     return;
   }
+  // const item = req.body.email;
+  // console.log(item, "item");
+  // const getUser = await UserLogin.find({ email: item });
+  // console.log(getUser, "get");
 
   // New user
   const user = new Userdb({
@@ -18,7 +22,6 @@ exports.create = (req, res) => {
     email: req.body.email,
     jobType: req.body.jobType,
     status: req.body.status,
-
     sundayClockInTime: req.body.sundayClockInTime,
     mondayClockInTime: req.body.mondayClockInTime,
     tuesdayClockInTime: req.body.tuesdayClockInTime,
@@ -78,6 +81,7 @@ exports.find = (req, res) => {
           res.status(404).send({ message: `Not found user with id ${id}` });
         } else {
           res.send(data);
+          ``;
         }
       })
       .catch((err) => {
@@ -143,32 +147,34 @@ exports.delete = (req, res) => {
     });
 };
 
-exports.login = (req, res) => {
-  if (req.query.id) {
-    const id = req.query.id;
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-    UserLogin.findById(id)
-      .then((data) => {
-        if (!data) {
-          res.status(404).send({ message: `Not found user with id ${id}` });
-        } else {
-          res.send(data);
-        }
-      })
-      .catch((err) => {
-        res
-          .status(500)
-          .send({ message: `Error retrieving user with id ${id}` });
-      });
-  } else {
-    Userdb.find()
-      .then((user) => {
-        res.send(user);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message: err.message || "Error occured while retrieving user info",
+    const user = await UserLogin.find({
+      email,
+    });
+
+    if (user) {
+      if (user[0]?.isAdmin) {
+        const userDetails = await Userdb.find({});
+        res.render("admin", { allUsers: userDetails, admin: user[0]?.isAdmin });
+        console.log(userDetails, "1");
+      } else if (!user[0]?.isAdmin) {
+        const userDetail = await Userdb.find({ email });
+        res.render("employee", {
+          allUsers: userDetail,
+          allUser: userDetail,
+          admin: user[0]?.isAdmin,
         });
+        console.log(userDetail, "2");
+      }
+    } else {
+      res.status(401).json({
+        msg: "Invalid Credentials",
       });
+    }
+  } catch (error) {
+    console.log(error);
   }
 };

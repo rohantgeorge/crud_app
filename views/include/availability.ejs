@@ -1,27 +1,14 @@
-<!-- Include Header -->
-<%- include('include/_header') %>
-<!-- /Include Header -->
-
-<!-- Main Site -->
-<main id="site-main">
-  <div class="container">
-    <div class="box-nav d-flex-justify-between">
-      <div class="filter">
-        <a href="/employee?id=<%= allUsers?._id %>"
-          ><i class="fas fa-angle-double-left"></i> Go Back
-        </a>
-      </div>
-    </div>
-    <div class="form-title text-center">
-      <h2 class="text-dark">Update Availability</h2>
-      <span class="text-dark"
-        >Use the below form to update your availability</span
-      >
-    </div>
-
+<div id="availability" class="modal-box">
+  <header>
+    <a href="javascript:void(0);" class="js-modal-close close">×</a>
+    <h3>Update Your Availability</h3>
+    <span class="text-dark"
+      >Use the below form to update your availability</span
+    >
+  </header>
+  <div class="modal-body">
     <!-- Form Handling -->
     <form id="update_availability">
-      <% {console.log(allUsers,"page");} %>
       <div class="new_user">
         <div class="row d-flex">
           <div
@@ -37,13 +24,16 @@
           </div>
           <!--  -->
           <div class="col-lg-4 d-flex flex-wrap">
+            <div class="form-group">
+              <input type="hidden" name="id" value="<%= allUser[0]?._id %>" />
+            </div>
             <div class="form-group timepicker_div">
               <input
                 name="sundayAvailabilityClockInTime"
                 type="text"
                 id="sundayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.sundayAvailabilityClockInTime%>"
+                value="<%= allUser[0]?.sundayAvailabilityClockInTime%>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -52,7 +42,7 @@
                 type="text"
                 id="mondayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.mondayAvailabilityClockInTime %>"
+                value="<%= allUser[0]?.mondayAvailabilityClockInTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -61,7 +51,7 @@
                 type="text"
                 id="tuesdayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.tuesdayAvailabilityClockInTime %>"
+                value="<%= allUser[0]?.tuesdayAvailabilityClockInTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -70,7 +60,7 @@
                 type="text"
                 id="wednesdayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.wednesdayAvailabilityClockInTime %>"
+                value="<%= allUser[0]?.wednesdayAvailabilityClockInTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -79,7 +69,7 @@
                 type="text"
                 id="thursdayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.thursdayAvailabilityClockInTime %>"
+                value="<%= allUser[0]?.thursdayAvailabilityClockInTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -88,7 +78,7 @@
                 type="text"
                 id="fridayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.fridayAvailabilityClockInTime %>"
+                value="<%= allUser[0]?.fridayAvailabilityClockInTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -97,7 +87,7 @@
                 type="text"
                 id="saturdayAvailabilityClockInTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.saturdayAvailabilityClockInTime %>"
+                value="<%= allUser[0]?.saturdayAvailabilityClockInTime %>"
               />
             </div>
           </div>
@@ -109,7 +99,7 @@
                 type="text"
                 id="sundayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.sundayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.sundayAvailabilityClockOutTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -118,7 +108,7 @@
                 type="text"
                 id="mondayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.mondayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.mondayAvailabilityClockOutTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -127,7 +117,7 @@
                 type="text"
                 id="tuesdayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.tuesdayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.tuesdayAvailabilityClockOutTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -136,7 +126,7 @@
                 type="text"
                 id="wednesdayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.wednesdayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.wednesdayAvailabilityClockOutTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -145,7 +135,7 @@
                 type="text"
                 id="thursdayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.thursdayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.thursdayAvailabilityClockOutTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -154,7 +144,7 @@
                 type="text"
                 id="fridayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.fridayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.fridayAvailabilityClockOutTime %>"
               />
             </div>
             <div class="form-group timepicker_div">
@@ -163,7 +153,7 @@
                 type="text"
                 id="saturdayAvailabilityClockOutTime"
                 class="form-control timepicker"
-                value="<%= allUsers?.saturdayAvailabilityClockOutTime %>"
+                value="<%= allUser[0]?.saturdayAvailabilityClockOutTime %>"
               />
             </div>
           </div>
@@ -175,9 +165,4 @@
       </div>
     </form>
   </div>
-</main>
-<!-- /Main Site -->
-
-<!-- Include Footer -->
-<%- include('include/_footer') %>
-<!-- /Include Footer -->
+</div>

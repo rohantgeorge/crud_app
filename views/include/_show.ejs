@@ -1,21 +1,21 @@
-<% for(var i = 0; i < users.length; i++) { %>
+<% for(var i = 0; i < allUsers?.length; i++) { %>
 
-<tr
-  data-date="<%= users[i].datepicker %>"
-  data-jobType="<%= users[i].jobType %>"
->
+<tr data-jobType="<%= allUsers[i].jobType %>">
   <td><%= i + 1 %></td>
-  <td><a class="link" href="/employee?id=<%= users[i]._id %>"><%= users[i].name %></a></td>
-  <td><%= users[i].email %></td>
-  <td><%= users[i].datepicker %></td>
-  <td><%= users[i].jobType %></td>
+  <td>
+    <a class="link" href="/employee?id=<%= allUsers[i]._id %>"
+      ><%= allUsers[i].name %></a
+    >
+  </td>
+  <td><a href="mailto:<%= allUsers[i].email %>"><%= allUsers[i].email %></a></td>
+  <td><%= allUsers[i].jobType %></td>
   <td>
     <a
-      href="/update_user?id=<%= users[i]._id %>"
+      href="/update_user?id=<%= allUsers[i]._id %>"
       class="btn-border-shadow update"
       ><span class="text-gradient"><i class="fas fa-pencil-alt"></i></span
     ></a>
-    <a data-id="<%=users[i]._id %>" class="btn-border-shadow delete"
+    <a data-id="<%=allUsers[i]._id %>" class="btn-border-shadow delete"
       ><span class="text-gradient"><i class="fas fa-times"></i></span
     ></a>
   </td>

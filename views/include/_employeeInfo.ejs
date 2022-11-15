@@ -1,5 +1,4 @@
-<% if (user?._id) { %> <% %>
-
+<% console.log(allUser, "allUser"); %>
 <div id="dates"></div>
 
 <div id="employee_info">
@@ -21,92 +20,92 @@
       </thead>
       <tbody>
         <tr class="employeeRow">
-          <td scope="row" id="mondayDate"></td>
-          <td>Monday</td>
+          <td class="date" scope="row" id="sundayDate"></td>
+          <td class="day">Sunday</td>
           <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.mondayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.mondayClockOutTime %></td>
+          <td class="clockInTime current_bg"><%= allUser[0]?.sundayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.sundayClockOutTime %></td>
           <td class="shiftHours current_bg">8</td>
           <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.mondayAvailabilityClockInTime ? user?.mondayAvailabilityClockInTime : user?.mondayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.mondayAvailabilityClockOutTime ? user?.mondayAvailabilityClockOutTime : user?.mondayClockOutTime %></td>
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.sundayAvailabilityClockInTime ? allUser[0]?.sundayAvailabilityClockInTime : allUser[0]?.sundayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.sundayAvailabilityClockOutTime ? allUser[0]?.sundayAvailabilityClockOutTime : allUser[0]?.sundayClockOutTime %></td>
           <td class="shiftAvailabilityHours available_bg">8</td>
         </tr>
         <tr class="employeeRow">
-          <td scope="row" id="tuesdayDate"></td>
-          <td>Tuesday</td>
+          <td class="date" scope="row" id="mondayDate"></td>
+          <td class="day">Monday</td>
           <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.tuesdayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.tuesdayClockOutTime %></td>
+          <td class="clockInTime current_bg"><%= allUser[0]?.mondayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.mondayClockOutTime %></td>
+          <td class="shiftHours current_bg">8</td>
+          <!-- Availability -->
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.mondayAvailabilityClockInTime ? allUser[0]?.mondayAvailabilityClockInTime : allUser[0]?.mondayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.mondayAvailabilityClockOutTime ? allUser[0]?.mondayAvailabilityClockOutTime : allUser[0]?.mondayClockOutTime %></td>
+          <td class="shiftAvailabilityHours available_bg">8</td>
+        </tr>
+        <tr class="employeeRow">
+          <td class="date" scope="row" id="tuesdayDate"></td>
+          <td class="day">Tuesday</td>
+          <!-- Current Schedule -->
+          <td class="clockInTime current_bg"><%= allUser[0]?.tuesdayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.tuesdayClockOutTime %></td>
           <td class="shiftHours current_bg"></td>
           <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.tuesdayAvailabilityClockInTime ? user?.tuesdayAvailabilityClockInTime : user?.tuesdayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.tuesdayAvailabilityClockOutTime ? user?.tuesdayAvailabilityClockOutTime : user?.tuesdayClockOutTime %></td>
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.tuesdayAvailabilityClockInTime ? allUser[0]?.tuesdayAvailabilityClockInTime : allUser[0]?.tuesdayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.tuesdayAvailabilityClockOutTime ? allUser[0]?.tuesdayAvailabilityClockOutTime : allUser[0]?.tuesdayClockOutTime %></td>
           <td class="shiftAvailabilityHours available_bg"></td>
         </tr>
         <tr class="employeeRow">
-          <td scope="row" id="wednesdayDate"></td>
-          <td>Wednesday</td>
+          <td class="date" scope="row" id="wednesdayDate"></td>
+          <td class="day">Wednesday</td>
           <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.wednesdayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.wednesdayClockOutTime %></td>
+          <td class="clockInTime current_bg"><%= allUser[0]?.wednesdayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.wednesdayClockOutTime %></td>
           <td class="shiftHours current_bg">8</td>
           <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.wednesdayAvailabilityClockInTime ? user?.wednesdayAvailabilityClockInTime : user?.wednesdayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.wednesdayAvailabilityClockOutTime ? user?.wednesdayAvailabilityClockOutTime : user?.wednesdayClockOutTime %></td>
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.wednesdayAvailabilityClockInTime ? allUser[0]?.wednesdayAvailabilityClockInTime : allUser[0]?.wednesdayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.wednesdayAvailabilityClockOutTime ? allUser[0]?.wednesdayAvailabilityClockOutTime : allUser[0]?.wednesdayClockOutTime %></td>
           <td class="shiftAvailabilityHours available_bg">8</td>
         </tr>
         <tr class="employeeRow">
-          <td scope="row" id="thursdayDate"></td>
-          <td>Thursday</td>
+          <td class="date" scope="row" id="thursdayDate"></td>
+          <td class="day">Thursday</td>
           <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.thursdayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.thursdayClockOutTime %></td>
+          <td class="clockInTime current_bg"><%= allUser[0]?.thursdayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.thursdayClockOutTime %></td>
           <td class="shiftHours current_bg"></td>
           <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.thursdayAvailabilityClockInTime ? user?.thursdayAvailabilityClockInTime : user?.thursdayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.thursdayAvailabilityClockOutTime ? user?.thursdayAvailabilityClockOutTime : user?.thursdayClockOutTime %></td>
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.thursdayAvailabilityClockInTime ? allUser[0]?.thursdayAvailabilityClockInTime : allUser[0]?.thursdayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.thursdayAvailabilityClockOutTime ? allUser[0]?.thursdayAvailabilityClockOutTime : allUser[0]?.thursdayClockOutTime %></td>
           <td class="shiftAvailabilityHours available_bg"></td>
         </tr>
         <tr class="employeeRow">
-          <td scope="row" id="fridayDate"></td>
-          <td>Friday</td>
+          <td class="date" scope="row" id="fridayDate"></td>
+          <td class="day">Friday</td>
           <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.fridayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.fridayClockOutTime %></td>
+          <td class="clockInTime current_bg"><%= allUser[0]?.fridayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.fridayClockOutTime %></td>
           <td class="shiftHours current_bg">8</td>
           <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.fridayAvailabilityClockInTime ? user?.fridayAvailabilityClockInTime : user?.fridayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.fridayAvailabilityClockOutTime ? user?.fridayAvailabilityClockOutTime : user?.fridayClockOutTime %></td>
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.fridayAvailabilityClockInTime ? allUser[0]?.fridayAvailabilityClockInTime : allUser[0]?.fridayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.fridayAvailabilityClockOutTime ? allUser[0]?.fridayAvailabilityClockOutTime : allUser[0]?.fridayClockOutTime %></td>
           <td class="shiftAvailabilityHours available_bg">8</td>
         </tr>
         <tr class="employeeRow">
-          <td scope="row" id="saturdayDate"></td>
-          <td>Saturday</td>
+          <td class="date" scope="row" id="saturdayDate"></td>
+          <td class="day">Saturday</td>
           <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.saturdayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.saturdayClockOutTime %></td>
+          <td class="clockInTime current_bg"><%= allUser[0]?.saturdayClockInTime %></td>
+          <td class="clockOutTime current_bg"><%= allUser[0]?.saturdayClockOutTime %></td>
           <td class="shiftHours current_bg">8</td>
           <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.saturdayAvailabilityClockInTime ? user?.saturdayAvailabilityClockInTime : user?.saturdayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.saturdayAvailabilityClockOutTime ? user?.saturdayAvailabilityClockOutTime : user?.saturdayClockOutTime %></td>
+          <td class="availabilityClockInTime available_bg"><%= allUser[0]?.saturdayAvailabilityClockInTime ? allUser[0]?.saturdayAvailabilityClockInTime : allUser[0]?.saturdayClockInTime %></td>
+          <td class="availabilityClockOutTime available_bg"><%= allUser[0]?.saturdayAvailabilityClockOutTime ? allUser[0]?.saturdayAvailabilityClockOutTime : allUser[0]?.saturdayClockOutTime %></td>
           <td class="shiftAvailabilityHours available_bg">8</td>
         </tr>
-        <tr class="employeeRow">
-          <td scope="row" id="sundayDate"></td>
-          <td>Sunday</td>
-          <!-- Current Schedule -->
-          <td class="clockInTime current_bg"><%= user?.sundayClockInTime %></td>
-          <td class="clockOutTime current_bg"><%= user?.sundayClockOutTime %></td>
-          <td class="shiftHours current_bg">8</td>
-          <!-- Availability -->
-          <td class="availabilityClockInTime available_bg"><%= user?.sundayAvailabilityClockInTime ? user?.sundayAvailabilityClockInTime : user?.sundayClockInTime %></td>
-          <td class="availabilityClockOutTime available_bg"><%= user?.sundayAvailabilityClockOutTime ? user?.sundayAvailabilityClockOutTime : user?.sundayClockOutTime %></td>
-          <td class="shiftAvailabilityHours available_bg">8</td>
-        </tr>
+        
       </tbody>
     </table>
   </div>
 </div>
 
-<% } %>

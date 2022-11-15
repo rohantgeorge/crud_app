@@ -39,14 +39,9 @@ route.get("/add_user", services.addRoutes);
  */
 route.get("/update_user", services.updateRoutes);
 
-/**
- * @description Update Availability Route
- * @method GET /update_availability
- */
-route.get("/update_availability", services.availabilityRoutes);
-
 // API
 route.post("/api/users", controller.create);
+route.post("/admin", controller.login);
 route.get("/api/users", controller.find);
 route.put("/api/users/:id", controller.update);
 route.delete("/api/users/:id", controller.delete);
