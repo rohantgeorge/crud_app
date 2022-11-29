@@ -16,10 +16,21 @@ exports.addRoutes = (req, res) => {
   res.render("add_user");
 };
 
+exports.createTicketRoutes = (req, res) => {
+  res.render("create_ticket");
+};
+
 exports.colleaguesRoutes = (req, res) => {
   // Make a GET request to the API users
   axios.get("http://localhost:3000/api/users").then(function (response) {
     res.render("colleagues", { users: response.data });
+  });
+};
+
+exports.allTicketsRoutes = (req, res) => {
+  // Make a GET request to the API users
+  axios.get("http://localhost:3000/api/tickets").then(function (response) {
+    res.render("allTickets", { allTickets: response.data });
   });
 };
 
@@ -42,12 +53,9 @@ exports.employeeRoutes = async (req, res) => {
       params: { id: req.query.id },
     })
     .then(async function (userdata) {
-      // const getUser =await UserLogin.find({ email: userdata.data.email });
-      // console.log(getUser, "get");
       res.render("employee", {
         allUsers: userdata.data,
         allUser: [userdata.data],
-        // admin: getUser?.isAdmin,
       });
     })
     .catch((err) => {

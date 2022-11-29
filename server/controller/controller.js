@@ -1,5 +1,6 @@
 var Userdb = require("../model/employee");
 const UserLogin = require("../model/login");
+const Ticket = require("../model/ticket");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const expressAsyncHandler = require("express-async-handler");
@@ -11,10 +12,6 @@ exports.create = async (req, res) => {
     res.status(400).send({ message: "Content can not be empty" });
     return;
   }
-  // const item = req.body.email;
-  // console.log(item, "item");
-  // const getUser = await UserLogin.find({ email: item });
-  // console.log(getUser, "get");
 
   // New user
   const user = new Userdb({
@@ -60,8 +57,44 @@ exports.create = async (req, res) => {
   user
     .save(user)
     .then((data) => {
-      // res.send(data);
       res.redirect("/add_user");
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while creating a new user",
+      });
+    });
+};
+
+// Create and save new ticket
+exports.createTicket = async (req, res) => {
+  // Validate the request
+  if (!req.body) {
+    res.status(400).send({ message: "Content can not be empty" });
+    return;
+  }
+
+  // New ticket
+  const ticket = new Ticket({
+    ticketerName: req.body.ticketerName,
+    ticketeeName: req.body.ticketeeName,
+    ticketType: req.body.ticketType,
+    transferDate: req.body.transferDate,
+    transferClockInTime: req.body.transferClockInTime,
+    transferClockOutTime: req.body.transferClockOutTime,
+    swapDateFrom: req.body.swapDateFrom,
+    swapDateTo: req.body.swapDateTo,
+    swapClockInTimeFrom: req.body.swapClockInTimeFrom,
+    swapClockOutTimeFrom: req.body.swapClockOutTimeFrom,
+    swapClockInTimeTo: req.body.swapClockInTimeTo,
+    swapClockOutTimeTo: req.body.swapClockOutTimeTo,
+  });
+
+  // Save the ticket data in the database
+  ticket
+    .save(ticket)
+    .then((data) => {
+      res.redirect("back");
     })
     .catch((err) => {
       res.status(500).send({
@@ -91,6 +124,38 @@ exports.find = (req, res) => {
       });
   } else {
     Userdb.find()
+      .then((user) => {
+        res.send(user);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Error occured while retrieving user info",
+        });
+      });
+  }
+};
+
+// Retrieve and return all tickets
+exports.findTicket = (req, res) => {
+  if (req.query.id) {
+    const id = req.query.id;
+
+    Ticket.findById(id)
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({ message: `Not found user with id ${id}` });
+        } else {
+          res.send(data);
+          ``;
+        }
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .send({ message: `Error retrieving user with id ${id}` });
+      });
+  } else {
+    Ticket.find()
       .then((user) => {
         res.send(user);
       })
@@ -143,6 +208,29 @@ exports.delete = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: `Cannot delete the user with id${id}`,
+      });
+    });
+};
+
+// Delete a ticket with specified ticket id in the request
+exports.deleteTicket = (req, res) => {
+  const id = req.params.id;
+
+  Ticket.findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res
+          .status(404)
+          .send({ message: `Cannot delete with id ${id}. Maybe id is wrong` });
+      } else {
+        res.send({
+          message: "Ticket was deleted successfully",
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: `Cannot delete the ticket with id${id}`,
       });
     });
 };

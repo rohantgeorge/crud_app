@@ -18,19 +18,11 @@
         </span></a
       >
       <a
-        href="javascript:void(0)"
+        href="/create_ticket"
         class="btn-border-shadow update js-open-modal"
         data-modal-id="transferTicket"
         ><span class="text-gradient">
-          <i class="fas fa-pencil-alt"></i> Create a Transfer Request
-        </span></a
-      >
-      <a
-        href="javascript:void(0)"
-        class="btn-border-shadow update js-open-modal"
-        data-modal-id="swapTicket"
-        ><span class="text-gradient">
-          <i class="fas fa-pencil-alt"></i> Create a Swap Request
+          <i class="fas fa-pencil-alt"></i> Create a Transfer/Swap Request
         </span></a
       >
     </div>
@@ -45,10 +37,8 @@
       </div>
     </div>
   </div>
-  <%- include('include/_employeeInfo') %> 
-  <%- include('include/availability') %>
-  <%- include('include/transfer') %>
-  <%- include('include/swap') %>
+  <%- include('include/_employeeInfo') %> <%- include('include/availability') %>
+  <%- include('include/_ticketModal') %>
 </main>
 
 <!-- /Main Site -->

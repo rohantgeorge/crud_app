@@ -1,0 +1,64 @@
+<!-- Include Header -->
+<%- include('include/_header') %>
+<!-- /Include Header -->
+
+<!-- Main Site -->
+<main id="site-main">
+  <div class="container" id="adminDashboard">
+    <div class="box-nav d-flex justify-content-between">
+      <div class="d-flex flex-gap-20">
+        <select
+          class="ticketType-filter-handle filter-handle"
+          id="ticketType-filter-handle"
+        >
+          <i class="fa-solid fa-caret-down"></i>
+          <option value="">Filter by Ticket Type</option>
+          <option value="Transfer">Transfer Ticket</option>
+          <option value="Swap">Swap Ticket</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Form Handling -->
+    <form action="/" method="POST">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Ticketer Name</th>
+            <th>Ticketee Name</th>
+            <th>Ticket Type</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="table" class="filter-table-data">
+          <% for(var i = 0; i < allTickets?.length; i++) { %>
+
+          <tr data-ticketType="<%= allTickets[i].ticketType %>">
+            <td><%= i + 1 %></td>
+            <td><%= allTickets[i].ticketerName %></td>
+            <td><%= allTickets[i].ticketeeName %></td>
+            <td><%= allTickets[i].ticketType %></td>
+            <td>
+              <a
+                href="/update_user?id=<%= allTickets[i]._id %>"
+                class="btn btn-success acceptTicket"
+                >Accept</a
+              >
+              <a data-id="<%=allTickets[i]._id %>" class="btn btn-danger delete"
+                >Reject</a
+              >
+            </td>
+          </tr>
+
+          <% } %>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</main>
+<!-- /Main Site -->
+
+<!-- Include Footer -->
+<%- include('include/_footer') %>
+<!-- /Include Footer -->

@@ -173,6 +173,8 @@ a.delete:hover .text-gradient {
 #update_user h4,
 #update_availability .form-group,
 #update_availability h4,
+#create_ticket .form-group,
+#create_ticket h4,
 #add_user h4,
 #add_user .form-group {
   margin: 0.4em 0;
@@ -180,12 +182,14 @@ a.delete:hover .text-gradient {
 
 #update_user h4,
 #update_availability h4,
+#create_ticket h4,
 #add_user h4 {
   padding: 0.4em 0em;
 }
 
 #update_user .form-group input[type="text"],
 #update_availability .form-group input[type="text"],
+#create_ticket .form-group input[type="text"],
 #add_user .form-group input[type="text"] {
   width: 100%;
   padding: 0.6em 1em;
@@ -198,6 +202,7 @@ a.delete:hover .text-gradient {
 
 #update_user .form-group .radio,
 #update_availability .form-group .radio,
+#create_ticket .form-group .radio,
 #add_user .form-group .radio {
   margin: 1em 2em;
 }
@@ -244,6 +249,7 @@ a.delete:hover .text-gradient {
 
 #update_user .form-group .btn,
 #update_availability .form-group .btn,
+#create_ticket .form-group .btn,
 #add_user .form-group .btn {
   width: 100%;
   padding: 0.9em 1em;
@@ -258,6 +264,7 @@ a.delete:hover .text-gradient {
 
 #update_user .form-group .btn:hover,
 #update_availability .form-group .btn:hover,
+#create_ticket .form-group .btn:hover,
 #add_user .form-group .btn:hover {
   background-color: var(--dark);
   color: var(--border);
@@ -508,6 +515,11 @@ a.close:hover {
   -webkit-transition: color 1s ease;
   -moz-transition: color 1s ease;
   transition: color 1s ease;
+}
+
+#transferForms,
+#swapForms {
+  display: none;
 }
 
 @media (min-width: 32em) {

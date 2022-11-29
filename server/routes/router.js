@@ -16,6 +16,12 @@ route.get("/", services.loginRoutes);
 route.get("/admin", services.homeRoutes);
 
 /**
+ * @description All Tickets Dashboard Route
+ * @method GET /
+ */
+route.get("/allTickets", services.allTicketsRoutes);
+
+/**
  * @description Single Emoloyee Route
  * @method GET /
  */
@@ -34,6 +40,12 @@ route.get("/colleagues", services.colleaguesRoutes);
 route.get("/add_user", services.addRoutes);
 
 /**
+ * @description Create Ticket Route
+ * @method GET /create_ticket
+ */
+route.get("/create_ticket", services.createTicketRoutes);
+
+/**
  * @description Update User Route
  * @method GET /update_user
  */
@@ -41,9 +53,11 @@ route.get("/update_user", services.updateRoutes);
 
 // API
 route.post("/api/users", controller.create);
+route.post("/api/tickets", controller.createTicket);
 route.post("/admin", controller.login);
 route.get("/api/users", controller.find);
+route.get("/api/tickets", controller.findTicket);
 route.put("/api/users/:id", controller.update);
-route.delete("/api/users/:id", controller.delete);
+route.delete("/api/tickets/:id", controller.deleteTicket);
 
 module.exports = route;

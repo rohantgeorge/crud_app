@@ -1,5 +1,5 @@
 <!-- Include Header -->
-<%- include('include/_header_employee') %>
+<%- include('include/_header') %>
 <!-- /Include Header -->
 
 <!-- Main Site -->
@@ -46,7 +46,7 @@
           <% for(var j = 0; j < 7; j++) { %>
           <% } %>
 
-          <tr data-jobType="<%= users[i].jobType %>">
+          <tr data-id="<%= users[i]._id  %>" data-jobType="<%= users[i].jobType %>">
             <td><%= i + 1 %></td>
             <td>
               <a class="link" href="/employee?id=<%= users[i]._id %>"

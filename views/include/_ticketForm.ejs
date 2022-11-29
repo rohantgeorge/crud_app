@@ -1,0 +1,145 @@
+<form action="/api/tickets" id="create_ticket" method="POST">
+  <div class="new_user">
+    <div class="form-group">
+      <label for="ticketerName" class="text-dark">Ticketer Name</label>
+      <input type="hidden" name="id" value="" />
+      <input
+        type="text"
+        name="ticketerName"
+        class="form-control"
+        placeholder="Enter your Name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="ticketeeName" class="text-dark">Ticketee Name</label>
+      <input
+        type="text"
+        name="ticketeeName"
+        class="form-control"
+        placeholder="Enter who you want to transfer shift to"
+      />
+    </div>
+    <div class="form-group">
+      <label for="ticketType" class="text-dark">Ticket Type</label>
+      <div class="radio inline">
+        <input
+          type="radio"
+          id="transfer"
+          name="ticketType"
+          value="Transfer Ticket"
+        />
+        <label for="transfer" class="text-dark radio-label"
+          >Transfer Ticket</label
+        >
+      </div>
+      <div class="radio inline">
+        <input type="radio" id="swap" name="ticketType" value="Swap Ticket" />
+        <label for="swap" class="text-dark radio-label">Swap Ticket</label>
+      </div>
+    </div>
+    <div id="transferForms">
+      <div class="form-group">
+        <label for="transferDate" class="text-dark">Shift Date</label>
+        <input
+          type="text"
+          id="datepicker"
+          name="transferDate"
+          class="form-control"
+          placeholder="Enter which date you want to transfer"
+        />
+      </div>
+      <div class="form-group timepicker_div">
+        <label for="transferClockInTime" class="text-dark"
+          >Shift Clock-in time</label
+        >
+        <input
+          name="transferClockInTime"
+          type="text"
+          id="transferClockInTime"
+          class="form-control timepicker"
+        />
+      </div>
+      <div class="form-group timepicker_div">
+        <label for="transferClockOutTime" class="text-dark"
+          >Shift Clock-out time</label
+        >
+        <input
+          name="transferClockOutTime"
+          type="text"
+          id="transferClockOutTime"
+          class="form-control timepicker"
+        />
+      </div>
+    </div>
+    <div id="swapForms">
+      <div class="form-group">
+        <label for="swapDateFrom" class="text-dark">Your Shift Date</label>
+        <input
+          type="text"
+          id="datepicker"
+          name="swapDateFrom"
+          class="form-control"
+          placeholder="Enter your shift date you want to swap"
+        />
+      </div>
+      <div class="form-group">
+        <label for="swapDateTo" class="text-dark">Employee Shift Date</label>
+        <input
+          type="text"
+          id="datepicker"
+          name="swapDateTo"
+          class="form-control"
+          placeholder="Enter employee shift date you want to swap"
+        />
+      </div>
+      <div class="form-group timepicker_div">
+        <label for="swapClockInTimeFrom" class="text-dark"
+          >Your Shift Clock-in time</label
+        >
+        <input
+          name="swapClockInTimeFrom"
+          type="text"
+          id="swapClockInTimeFrom"
+          class="form-control timepicker"
+        />
+      </div>
+      <div class="form-group timepicker_div">
+        <label for="swapClockOutTimeFrom" class="text-dark"
+          >Your Shift Clock-out time</label
+        >
+        <input
+          name="swapClockOutTimeFrom"
+          type="text"
+          id="swapClockOutTimeFrom"
+          class="form-control timepicker"
+        />
+      </div>
+      <div class="form-group timepicker_div">
+        <label for="swapClockInTimeTo" class="text-dark"
+          >Employee Shift Clock-out time</label
+        >
+        <input
+          name="swapClockInTimeTo"
+          type="text"
+          id="swapClockInTimeTo"
+          class="form-control timepicker"
+        />
+      </div>
+      <div class="form-group timepicker_div">
+        <label for="swapClockOutTimeTo" class="text-dark"
+          >Employee Shift Clock-out time</label
+        >
+        <input
+          name="swapClockOutTimeTo"
+          type="text"
+          id="swapClockOutTimeTo"
+          class="form-control timepicker"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn text-dark update">Create Ticket</button>
+    </div>
+  </div>
+</form>

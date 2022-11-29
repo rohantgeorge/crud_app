@@ -1,4 +1,3 @@
-<% //console.log(admin, "header"); %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="css/timepicker.css" />
-    <!-- <link rel="stylesheet" href="css/datepicker.css" /> -->
+    <link rel="stylesheet" href="css/datepicker.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -53,19 +52,15 @@
                   id="navbarSupportedContent"
                 >
                   <ul class="navbar-nav mr-auto">
-                    <% //if(!admin){ %>
                     <li class="nav-item active">
-                      <a class="nav-link" href="/colleagues"
-                        >All Colleagues <span class="sr-only">(current)</span></a
-                      >
+                      <a class="nav-link" href="/colleagues">All Colleagues </a>
                     </li>
-                    <% //} else if(admin){ %>
                     <li class="nav-item active">
-                      <a class="nav-link" href="/admin"
-                        >All Employees <span class="sr-only">(current)</span></a
-                      >
+                      <a class="nav-link" href="/admin">All Employees </a>
                     </li>
-                    <% //} %>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/allTickets">All Tickets </a>
+                    </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/">Logout</a>
                     </li>

@@ -4,6 +4,12 @@
 $("#add_user").submit(function (event) {
   alert("Data inserted successfully");
 });
+/**
+ * Ticket Addition
+ */
+$("#create_ticket").submit(function (event) {
+  alert("Ticket created successfully");
+});
 
 /**
  * Data Updation
@@ -84,6 +90,28 @@ if (window.location.pathname == "/admin") {
 }
 
 /**
+ * Data Deletion
+ */
+if (window.location.pathname == "/allTickets") {
+  $ondelete = $(".table tbody td a.delete");
+  $ondelete.click(function () {
+    var id = $(this).attr("data-id");
+
+    var request = {
+      url: `http://localhost:3000/api/tickets/${id}`,
+      method: "DELETE",
+    };
+
+    if (confirm("Do you really want to delete this ticket?")) {
+      $.ajax(request).done(function (response) {
+        alert("Ticket deleted successfully");
+        location.reload();
+      });
+    }
+  });
+}
+
+/**
  * Clock
  */
 $(document).ready(function () {
@@ -106,6 +134,27 @@ $(".jobType-filter-handle").on("change", function (e) {
     table.find("tr[data-jobType=" + jobType + "]").show();
   } else {
     // jobType is not selected,
+    // display all
+    table.find("tr").show();
+  }
+});
+
+/**
+ * Filter by Ticket Type
+ */
+$(".ticketType-filter-handle").on("change", function (e) {
+  console.log("Ticket Type filter working");
+  // retrieve the dropdown selected value
+  var ticketType = e.target.value;
+  var table = $(".filter-table-data");
+  // if a ticketType is selected
+  if (ticketType.length) {
+    // hide all not matching
+    table.find("tr[data-ticketType!=" + ticketType + "]").hide();
+    // display all matching
+    table.find("tr[data-ticketType=" + ticketType + "]").show();
+  } else {
+    // ticketType is not selected,
     // display all
     table.find("tr").show();
   }
@@ -216,4 +265,25 @@ $(function () {
       $(".modal-overlay").remove();
     });
   });
+});
+
+/**
+ * Radio check/uncheck
+ */
+const transferForms = document.getElementById("transferForms");
+const swapForms = document.getElementById("swapForms");
+
+function handleRadioClick() {
+  if (document.getElementById("transfer").checked) {
+    transferForms.style.display = "block";
+    swapForms.style.display = "none";
+  } else if (document.getElementById("swap").checked) {
+    transferForms.style.display = "none";
+    swapForms.style.display = "block";
+  }
+}
+
+const radioButtons = document.querySelectorAll('input[name="ticketType"]');
+radioButtons.forEach((radio) => {
+  radio.addEventListener("click", handleRadioClick);
 });
