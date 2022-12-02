@@ -28,7 +28,7 @@
             <th>Ticketer Name</th>
             <th>Ticketee Name</th>
             <th>Ticket Type</th>
-            <th>Action</th>
+            <th>View More</th>
           </tr>
         </thead>
         <tbody id="table" class="filter-table-data">
@@ -41,13 +41,12 @@
             <td><%= allTickets[i].ticketType %></td>
             <td>
               <a
-                href="/update_user?id=<%= allTickets[i]._id %>"
-                class="btn btn-success acceptTicket"
-                >Accept</a
+                class="btn-border-shadow update link"
+                href="/ticketInfo?id=<%= allTickets[i]._id %>"
+                >View More</a
               >
-              <a data-id="<%=allTickets[i]._id %>" class="btn btn-danger delete"
-                >Reject</a
-              >
+              <a data-id="<%=allTickets[i]._id %>" class="btn-border-shadow btn btn-danger delete"
+                >Delete</a>
             </td>
           </tr>
 

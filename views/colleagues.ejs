@@ -3,19 +3,13 @@
 <!-- /Include Header -->
 
 <!-- Main Site -->
+<% console.log(users,"Uss"); %>
 <main id="site-main">
   <div class="container" id="adminDashboard">
     <div class="box-nav d-flex justify-content-between">
       <div></div>
 
       <div class="d-flex flex-gap-20">
-        <!-- <select
-          class="date-filter-handle filter-handle"
-          id="date-filter-handle"
-        >
-          <i class="fa-solid fa-caret-down"></i>
-          <option value="">Filter by Date</option>
-        </select> -->
         <select
           class="jobType-filter-handle filter-handle"
           id="jobType-filter-handle"
@@ -41,12 +35,13 @@
           </tr>
         </thead>
         <tbody id="table" class="filter-table-data">
-          <% for(var i = 0; i < users.length; i++) { %>
-          <% var count = 0; %>
-          <% for(var j = 0; j < 7; j++) { %>
-          <% } %>
+          <% for(var i = 0; i < users.length; i++) { %> <% var count = 0; %> <%
+          for(var j = 0; j < 7; j++) { %> <% } %>
 
-          <tr data-id="<%= users[i]._id  %>" data-jobType="<%= users[i].jobType %>">
+          <tr
+            data-id="<%= users[i]._id  %>"
+            data-jobType="<%= users[i].jobType %>"
+          >
             <td><%= i + 1 %></td>
             <td>
               <a class="link" href="/employee?id=<%= users[i]._id %>"
@@ -57,9 +52,9 @@
             <td><%= users[i].jobType %></td>
             <td>
               <a
-                href="/create_ticket?id=<%= users[i]._id %>"
+                href="/employee?id=<%= users[i]._id %>"
                 class="btn-border-shadow update"
-                ><span class="text-gradient">Create a Request</span></a
+                ><span class="text-gradient">View more info</span></a
               >
             </td>
           </tr>

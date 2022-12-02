@@ -1,0 +1,41 @@
+<div class="container main pt-5" id="employeeDashboard">
+  <div id="employee_legend" class="row">
+    <div class="col col-lg-8 position-relative">
+      <span hidden class="blue m-0"><%= allUser[0]?._id %></span>
+      <h1 class="blue m-0"><%= allUser[0]?.name %></h1>
+      <p class="employee_position m-0"><%= allUser[0]?.jobType %></p>
+      <a
+        href="javascript:void(0)"
+        class="btn-border-shadow update js-open-modal"
+        data-modal-id="availability"
+        ><span class="text-gradient">
+          <i class="fas fa-pencil-alt"></i> Edit Availability
+        </span></a
+      >
+      <% console.log(userId, "User ID"); %> 
+      <% console.log(allUser[0]?.email, "Logged in employee ID"); %> 
+      <% if(userId != allUser[0]?.email) { %>
+      <a
+        href="/create_ticket"
+        class="btn-border-shadow update js-open-modal"
+        data-modal-id="transferTicket"
+        ><span class="text-gradient">
+          <i class="fas fa-pencil-alt"></i> Create a Transfer/Swap Request
+        </span></a
+      >
+      <% } %> 
+    </div>
+    <div class="col col-lg-4 d-flex justify-content-between">
+      <div class="current-schedule-legend d-flex align-items-center">
+        <span class="current-color"></span>
+        <span class="ml-1"> Current Schedule</span>
+      </div>
+      <div class="availability-legend d-flex align-items-center">
+        <span class="availability-color"></span>
+        <span class="ml-1"> Availability</span>
+      </div>
+    </div>
+  </div>
+  <%- include('_employeeInfo') %> <%- include('availability') %>
+  <%- include('_ticketModal') %>
+</div>

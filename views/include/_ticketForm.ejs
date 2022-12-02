@@ -2,21 +2,26 @@
   <div class="new_user">
     <div class="form-group">
       <label for="ticketerName" class="text-dark">Ticketer Name</label>
-      <input type="hidden" name="id" value="" />
+      <input type="hidden" name="id" value="<%= allUser[0]?._id %> " />
       <input
         type="text"
         name="ticketerName"
         class="form-control"
-        placeholder="Enter your Name"
+        value="<%= userName %>"
       />
     </div>
     <div class="form-group">
       <label for="ticketeeName" class="text-dark">Ticketee Name</label>
       <input
+        type="hidden"
+        name="ticketeeEmail"
+        value="<%= allUser[0]?._id %> "
+      />
+      <input
         type="text"
         name="ticketeeName"
         class="form-control"
-        placeholder="Enter who you want to transfer shift to"
+        value="<%= allUser[0]?.name %>"
       />
     </div>
     <div class="form-group">

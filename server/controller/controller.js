@@ -52,10 +52,29 @@ exports.create = async (req, res) => {
     fridayAvailabilityClockOutTime: req.body.fridayAvailabilityClockOutTime,
     saturdayAvailabilityClockOutTime: req.body.saturdayAvailabilityClockOutTime,
   });
+  // New user login info
+  const employeeLoginInfo = new UserLogin({
+    name: req.body.name,
+    email: req.body.email,
+    password: "123456",
+    isAdmin: false,
+  });
 
   // Save the data in the database
   user
     .save(user)
+    .then((data) => {
+      res.redirect("/add_user");
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while creating a new user",
+      });
+    });
+
+  // Save the data in the database
+  employeeLoginInfo
+    .save(employeeLoginInfo)
     .then((data) => {
       res.redirect("/add_user");
     })
@@ -78,6 +97,7 @@ exports.createTicket = async (req, res) => {
   const ticket = new Ticket({
     ticketerName: req.body.ticketerName,
     ticketeeName: req.body.ticketeeName,
+    ticketeeEmail: req.body.ticketeeEmail,
     ticketType: req.body.ticketType,
     transferDate: req.body.transferDate,
     transferClockInTime: req.body.transferClockInTime,
@@ -238,24 +258,39 @@ exports.deleteTicket = (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    const temp = req.session;
+    console.log(temp, "temp");
 
     const user = await UserLogin.find({
       email,
     });
+    req.session.userType = user[0].isAdmin;
+    req.session.userId = user[0].email;
+    req.session.userName = user[0].name;
 
     if (user) {
       if (user[0]?.isAdmin) {
+        req.session.isAuth = true;
         const userDetails = await Userdb.find({});
-        res.render("admin", { allUsers: userDetails, admin: user[0]?.isAdmin });
-        console.log(userDetails, "1");
+        res.render("admin", {
+          allUsers: userDetails,
+
+          userType: user[0].isAdmin,
+          userId: user[0].email,
+          userName: user[0].name,
+
+        });
       } else if (!user[0]?.isAdmin) {
+        req.session.isAuth = true;
         const userDetail = await Userdb.find({ email });
-        res.render("employee", {
+        res.render("admin", {
           allUsers: userDetail,
           allUser: userDetail,
-          admin: user[0]?.isAdmin,
+
+          userType: user[0].isAdmin,
+          userId: user[0].email,
+          userName: user[0].name,
         });
-        console.log(userDetail, "2");
       }
     } else {
       res.status(401).json({

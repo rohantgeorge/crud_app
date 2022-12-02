@@ -17,6 +17,9 @@
           <i class="fas fa-pencil-alt"></i> Edit Availability
         </span></a
       >
+      <% console.log(userId, "User ID"); %> 
+      <% console.log(allUser[0]?.email, "Logged in employee ID"); %> 
+      <% if(userId != allUser[0]?.email) { %>
       <a
         href="/create_ticket"
         class="btn-border-shadow update js-open-modal"
@@ -25,6 +28,7 @@
           <i class="fas fa-pencil-alt"></i> Create a Transfer/Swap Request
         </span></a
       >
+      <% } %> 
     </div>
     <div class="col col-lg-4 d-flex justify-content-between">
       <div class="current-schedule-legend d-flex align-items-center">

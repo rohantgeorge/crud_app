@@ -2,6 +2,7 @@ const express = require("express");
 const route = express.Router();
 const services = require("../services/render");
 const controller = require("../controller/controller");
+const isAuth = require("../../middleware/auth");
 
 /**
  * @description Root Route
@@ -13,43 +14,49 @@ route.get("/", services.loginRoutes);
  * @description Admin Dashboard Route
  * @method GET /
  */
-route.get("/admin", services.homeRoutes);
+route.get("/admin", isAuth, services.homeRoutes);
 
 /**
  * @description All Tickets Dashboard Route
  * @method GET /
  */
-route.get("/allTickets", services.allTicketsRoutes);
+route.get("/allTickets", isAuth, services.allTicketsRoutes);
 
 /**
  * @description Single Emoloyee Route
  * @method GET /
  */
-route.get("/employee", services.employeeRoutes);
+route.get("/employee", isAuth, services.employeeRoutes);
+
+/**
+ * @description Single Ticket Route
+ * @method GET /
+ */
+route.get("/ticketInfo", isAuth, services.ticketRoutes);
 
 /**
  * @description Colleague List Route
  * @method GET /
  */
-route.get("/colleagues", services.colleaguesRoutes);
+route.get("/colleagues", isAuth, services.colleaguesRoutes);
 
 /**
  * @description Add User Route
  * @method GET /add_user
  */
-route.get("/add_user", services.addRoutes);
+route.get("/add_user", isAuth, services.addRoutes);
 
 /**
  * @description Create Ticket Route
  * @method GET /create_ticket
  */
-route.get("/create_ticket", services.createTicketRoutes);
+route.get("/create_ticket", isAuth, services.createTicketRoutes);
 
 /**
  * @description Update User Route
  * @method GET /update_user
  */
-route.get("/update_user", services.updateRoutes);
+route.get("/update_user", isAuth, services.updateRoutes);
 
 // API
 route.post("/api/users", controller.create);

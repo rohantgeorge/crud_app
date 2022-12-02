@@ -1,0 +1,44 @@
+<div class="container" id="adminDashboard">
+  <div class="box-nav d-flex justify-content-between">
+    <a href="/add_user" class="border-shadow">
+      <span class="text-gradient">New User <i class="fa fa-user"></i></span>
+    </a>
+
+    <div class="d-flex flex-gap-20">
+      <!-- <select
+          class="date-filter-handle filter-handle"
+          id="date-filter-handle"
+        >
+          <i class="fa-solid fa-caret-down"></i>
+          <option value="">Filter by Date</option>
+        </select> -->
+      <select
+        class="jobType-filter-handle filter-handle"
+        id="jobType-filter-handle"
+      >
+        <i class="fa-solid fa-caret-down"></i>
+        <option value="">Filter by Job Type</option>
+        <option value="Full-time">Full-time</option>
+        <option value="Part-time">Part-time</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Form Handling -->
+  <form action="/" method="POST">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Job Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="table" class="filter-table-data">
+        <%- include('_show') %>
+      </tbody>
+    </table>
+  </form>
+</div>

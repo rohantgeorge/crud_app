@@ -21,6 +21,7 @@ $(document).ajaxStop(function () {
     $(".modal-overlay").remove();
   });
 });
+
 $("#update_user").submit(function (event) {
   event.preventDefault();
 
@@ -42,6 +43,31 @@ $("#update_user").submit(function (event) {
   $.ajax(request).done(function (response) {
     alert("Data updated successfully");
   });
+});
+
+$("#update_user_time").submit(function (event) {
+  event.preventDefault();
+
+  var unindexed_array = $(this).serializeArray();
+  var data = {};
+  
+  console.log(unindexed_array);
+
+  $.map(unindexed_array, function (n, i) {
+    data[n["name"]] = n["value"];
+  });
+
+  console.log(data.id);
+
+  var request = {
+    url: `http://localhost:3000/api/users/${data.id}`,
+    method: "PUT",
+    data: data,
+  };
+
+  // $.ajax(request).done(function (response) {
+  //   alert("Data updated successfully");
+  // });
 });
 
 $("#update_availability").submit(function (event) {
@@ -286,4 +312,36 @@ function handleRadioClick() {
 const radioButtons = document.querySelectorAll('input[name="ticketType"]');
 radioButtons.forEach((radio) => {
   radio.addEventListener("click", handleRadioClick);
+});
+
+$(document).ready(function () {
+  let dayArray = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  $(".sunday").hide();
+  $(".monday").hide();
+  $(".tuesday").hide();
+  $(".wednesday").hide();
+  $(".thursday").hide();
+  $(".friday").hide();
+  $(".saturday").hide();
+
+  var date = $(".dateFormat").text();
+  const d = new Date(date);
+  let day = d.getDay();
+
+  $(".day").append(dayArray[day + 1]);
+
+  for (let i = 0; i < dayArray.length; i++) {
+    console.log(day+1);
+    if (dayArray.indexOf(dayArray[day + 1]) == day + 1) {
+      $("." + dayArray[day + 1].toLocaleLowerCase()).show();
+    }
+  }
 });

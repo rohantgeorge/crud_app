@@ -4,8 +4,12 @@ const morgan = require("morgan");
 const bodyparser = require("body-parser");
 const path = require("path");
 const userRoutes = require("./server/routes/router");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
+
 
 const connectDB = require("./server/database/connection");
+global.isAuth=false;
 
 const app = express();
 
@@ -32,8 +36,36 @@ app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/assets"));
 
+
+const store = new MongoDBStore({
+  uri: process.env.MONGO_URI,
+  collection: "sessions_data",
+});
+
+const oneDay = 1000 * 60 * 60 * 24;
+
+app.use(
+  session({
+    secret: "A Secret String to Sign the Cookie",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: oneDay },
+    store: store,
+  })
+);
+
+
 // load routers
 app.use("/", userRoutes);
+
+app.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) throw err;
+    msg = "existing user";
+    res.redirect("/");
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
