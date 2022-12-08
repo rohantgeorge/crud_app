@@ -16,7 +16,6 @@ $("#create_ticket").submit(function (event) {
  */
 $(document).ajaxStop(function () {
   window.location.reload();
-  console.log("Working");
   $(".modal-box, .modal-overlay").fadeOut(500, function () {
     $(".modal-overlay").remove();
   });
@@ -44,32 +43,96 @@ $("#update_user").submit(function (event) {
     alert("Data updated successfully");
   });
 });
-
+/**********************/
 $("#update_user_time").submit(function (event) {
   event.preventDefault();
 
   var unindexed_array = $(this).serializeArray();
   var data = {};
-  
+  var shiftTime = {};
+
   console.log(unindexed_array);
 
   $.map(unindexed_array, function (n, i) {
     data[n["name"]] = n["value"];
   });
 
-  console.log(data.id);
+  console.log(data);
 
-  var request = {
-    url: `http://localhost:3000/api/users/${data.id}`,
+  if (data.sundayClockInTime != null && data.sundayClockOutTime != null) {
+    shiftTime = {
+      sundayClockInTime: "",
+      sundayClockOutTime: "",
+    };
+  } else if (
+    data.mondayClockInTime != null &&
+    data.mondayClockOutTime != null
+  ) {
+    shiftTime = {
+      mondayClockInTime: "",
+      mondayClockOutTime: "",
+    };
+  } else if (
+    data.tuesdayClockInTime != null &&
+    data.tuesdayClockOutTime != null
+  ) {
+    shiftTime = {
+      tuesdayClockInTime: "",
+      tuesdayClockOutTime: "",
+      saturdayClockOutTime: "",
+    };
+  } else if (
+    data.wednesdayClockInTime != null &&
+    data.wednesdayClockOutTime != null
+  ) {
+    shiftTime = {
+      wednesdayClockInTime: "",
+      wednesdayClockOutTime: "",
+    };
+  } else if (
+    data.thursdayClockInTime != null &&
+    data.thursdayClockOutTime != null
+  ) {
+    shiftTime = {
+      thursdayClockInTime: "",
+      thursdayClockOutTime: "",
+    };
+  } else if (
+    data.fridayClockInTime != null &&
+    data.fridayClockOutTime != null
+  ) {
+    shiftTime = {
+      fridayClockInTime: "",
+      fridayClockOutTime: "",
+    };
+  } else if (
+    data.saturdayClockInTime != null &&
+    data.saturdayClockOutTime != null
+  ) {
+    shiftTime = {
+      saturdayClockInTime: " ",
+      saturdayClockOutTime: " ",
+    };
+  }
+
+  console.log(shiftTime, "shifttime");
+
+  var updateRrequest = {
+    url: `http://localhost:3000/api/users/${data.ticketeeId}`,
     method: "PUT",
     data: data,
   };
+  var deleteRequest = {
+    url: `http://localhost:3000/api/users/${data.ticketerId}`,
+    method: "PUT",
+    shiftTime: shiftTime,
+  };
 
-  // $.ajax(request).done(function (response) {
-  //   alert("Data updated successfully");
-  // });
+  $.ajax(deleteRequest).done(function (response) {
+    alert("Data updated successfully");
+  });
 });
-
+/*********************/
 $("#update_availability").submit(function (event) {
   event.preventDefault();
 
@@ -97,7 +160,7 @@ $("#update_availability").submit(function (event) {
  * Data Deletion
  */
 if (window.location.pathname == "/admin") {
-  $ondelete = $(".table tbody td a.delete");
+  $ondelete = $(".employee_delete_btn");
   $ondelete.click(function () {
     var id = $(this).attr("data-id");
 
@@ -151,17 +214,17 @@ $(".jobType-filter-handle").on("change", function (e) {
   console.log("Job Type filter working");
   // retrieve the dropdown selected value
   var jobType = e.target.value;
-  var table = $(".filter-table-data");
+  var table = $(".employeeCard");
   // if a jobType is selected
   if (jobType.length) {
     // hide all not matching
-    table.find("tr[data-jobType!=" + jobType + "]").hide();
+    table.find("div[data-jobType!=" + jobType + "]").hide();
     // display all matching
-    table.find("tr[data-jobType=" + jobType + "]").show();
+    table.find("div[data-jobType=" + jobType + "]").show();
   } else {
     // jobType is not selected,
     // display all
-    table.find("tr").show();
+    table.find("div").show();
   }
 });
 
@@ -332,6 +395,14 @@ $(document).ready(function () {
   $(".friday").hide();
   $(".saturday").hide();
 
+  $(".sunday input").attr("disabled", true);
+  $(".monday input").attr("disabled", true);
+  $(".tuesday input").attr("disabled", true);
+  $(".wednesday input").attr("disabled", true);
+  $(".thursday input").attr("disabled", true);
+  $(".friday input").attr("disabled", true);
+  $(".saturday input").attr("disabled", true);
+
   var date = $(".dateFormat").text();
   const d = new Date(date);
   let day = d.getDay();
@@ -339,9 +410,13 @@ $(document).ready(function () {
   $(".day").append(dayArray[day + 1]);
 
   for (let i = 0; i < dayArray.length; i++) {
-    console.log(day+1);
+    console.log(day + 1);
     if (dayArray.indexOf(dayArray[day + 1]) == day + 1) {
       $("." + dayArray[day + 1].toLocaleLowerCase()).show();
+      $("." + dayArray[day + 1].toLocaleLowerCase() + " input").attr(
+        "disabled",
+        false
+      );
     }
   }
 });

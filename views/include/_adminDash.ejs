@@ -24,21 +24,5 @@
     </div>
   </div>
 
-  <!-- Form Handling -->
-  <form action="/" method="POST">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Job Type</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="table" class="filter-table-data">
-        <%- include('_show') %>
-      </tbody>
-    </table>
-  </form>
+  <div id="employeeCardsContainer"><%- include('_show') %></div>
 </div>

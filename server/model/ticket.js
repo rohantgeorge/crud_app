@@ -4,7 +4,8 @@ var ticketSchema = new mongoose.Schema(
   {
     ticketerName: String,
     ticketeeName: String,
-    ticketeeEmail: String,
+    ticketerId: String,
+    ticketeeId: String,
     ticketType: String,
     transferDate: String,
     transferClockInTime: String,

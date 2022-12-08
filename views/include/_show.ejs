@@ -1,24 +1,41 @@
 <% for(var i = 0; i < allUsers?.length; i++) { %>
-
-<tr data-jobType="<%= allUsers[i].jobType %>">
-  <td><%= i + 1 %></td>
-  <td>
-    <a class="link" href="/employee?id=<%= allUsers[i]._id %>"
-      ><%= allUsers[i].name %></a
+<% if(allUsers[i].isAdmin == false) { %>
+<div class="employeeCard">
+  <div class="employee_img">
+    <img src="img/employee_pic.jpg" alt="Employee name" />
+  </div>
+  <div class="employee_info">
+    <h3 class="employee_name">
+      <a class="link" href="/employee?id=<%= allUsers[i]._id %>"
+        ><%= allUsers[i].name %></a
+      >
+    </h3>
+    <div  data-jobType="<%= allUsers[i].jobType %>" class="employee_jobType"><%= allUsers[i].jobType %></div>
+    <a href="tel:1111111111" class="employee_phone">+1 111 111 1111</a>
+    <a href="mailto:<%= allUsers[i].email %>" class="employee_mail"
+      ><%= allUsers[i].email %></a
     >
-  </td>
-  <td><a href="mailto:<%= allUsers[i].email %>"><%= allUsers[i].email %></a></td>
-  <td><%= allUsers[i].jobType %></td>
-  <td>
-    <a
-      href="/update_user?id=<%= allUsers[i]._id %>"
-      class="btn-border-shadow update"
-      ><span class="text-gradient"><i class="fas fa-pencil-alt"></i></span
-    ></a>
-    <a data-id="<%=allUsers[i]._id %>" class="btn-border-shadow delete"
-      ><span class="text-gradient"><i class="fas fa-times"></i></span
-    ></a>
-  </td>
-</tr>
-
+  </div>
+  <div class="employee_actions_container">
+    <div class="actions_dots">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        class="w-5 h-5"
+      >
+        <path
+          d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z"
+        />
+      </svg>
+    </div>
+    <div class="employee_actions">
+      <a href="/update_user?id=<%= allUsers[i]._id %>" class="employee_edit_btn"
+        >Edit</a
+      >
+      <a data-id="<%=allUsers[i]._id %>" class="employee_delete_btn delete">Delete</a>
+    </div>
+  </div>
+</div>
+<% } %> 
 <% } %>

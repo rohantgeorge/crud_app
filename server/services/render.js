@@ -7,6 +7,7 @@ exports.loginRoutes = (req, res) => {
 
 exports.homeRoutes = (req, res) => {
   // Make a GET request to the API users
+  
   axios.get("http://localhost:3000/api/users").then(function (response) {
     res.render("admin", {
       allUsers: response.data,
@@ -65,6 +66,7 @@ exports.updateRoutes = (req, res) => {
 };
 
 exports.employeeRoutes = async (req, res) => {
+  
   axios
     .get("http://localhost:3000/api/users", {
       params: { id: req.query.id },

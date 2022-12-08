@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Dosis:wght@200;300;400;500;600;700;800&family=Mouse+Memoirs&family=Oswald:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 :root {
-  --dark: #2b2d42;
+  --dark: #012526;
   --light: #adb5bd;
   --gray: #34495e;
   --darkgray: #2c3e50;
@@ -564,4 +564,110 @@ a.close:hover {
 
 /* Large devices (large desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+}
+
+#employeeCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  column-gap: 30px;
+  row-gap: 30px;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.employee_actions_container {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  cursor: pointer;
+}
+
+.actions_dots svg {
+  width: 40px;
+  fill: #fff;
+  display: block;
+  margin-left: auto;
+}
+
+.employeeCard {
+  border-radius: 10px;
+  background: #012526;
+  box-shadow: inset 14px 14px 28px #001011, inset -14px -14px 28px #023a3b;
+  padding: 3rem 20px;
+  position: relative;
+}
+
+.employee_img img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.employee_info .employee_name {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.employee_info .employee_name a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.employee_info .employee_jobType {
+  color: rgb(205, 205, 205);
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.employee_info .employee_phone {
+  color: rgb(205, 205, 205);
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+}
+
+.employee_info .employee_mail {
+  color: rgb(205, 205, 205);
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: center;
+  display: block;
+  margin: 10px 0;
+}
+
+.employee_actions {
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 150px;
+  right: 5px;
+  top: 35px;
+  transform: scale(0);
+  transition: 0.5s ease-in-out;
+}
+
+.employee_actions_container:hover .employee_actions {
+  transform: scale(1);
+}
+
+a.employee_edit_btn,
+a.employee_delete_btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 0;
 }

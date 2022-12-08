@@ -9,6 +9,8 @@
       <span hidden class="blue m-0"><%= allUser[0]?._id %></span>
       <h1 class="blue m-0"><%= allUser[0]?.name %></h1>
       <p class="employee_position m-0"><%= allUser[0]?.jobType %></p>
+      <% if(userId == allUser[0]?.email) { %>
+
       <a
         href="javascript:void(0)"
         class="btn-border-shadow update js-open-modal"
@@ -17,8 +19,8 @@
           <i class="fas fa-pencil-alt"></i> Edit Availability
         </span></a
       >
-      <% console.log(userId, "User ID"); %> 
-      <% console.log(allUser[0]?.email, "Logged in employee ID"); %> 
+      <% } %> 
+
       <% if(userId != allUser[0]?.email) { %>
       <a
         href="/create_ticket"

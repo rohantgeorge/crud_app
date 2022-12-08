@@ -3,6 +3,7 @@
     <div class="form-group">
       <label for="ticketerName" class="text-dark">Ticketer Name</label>
       <input type="hidden" name="id" value="<%= allUser[0]?._id %> " />
+      <input type="hidden" name="ticketerId" value="<%= userId %> " />
       <input
         type="text"
         name="ticketerName"
@@ -12,11 +13,7 @@
     </div>
     <div class="form-group">
       <label for="ticketeeName" class="text-dark">Ticketee Name</label>
-      <input
-        type="hidden"
-        name="ticketeeEmail"
-        value="<%= allUser[0]?._id %> "
-      />
+      <input type="hidden" name="ticketeeId" value="<%= allUser[0]?._id %> " />
       <input
         type="text"
         name="ticketeeName"
@@ -81,7 +78,7 @@
         <label for="swapDateFrom" class="text-dark">Your Shift Date</label>
         <input
           type="text"
-          id="datepicker"
+          id="datepicker1"
           name="swapDateFrom"
           class="form-control"
           placeholder="Enter your shift date you want to swap"
@@ -91,7 +88,7 @@
         <label for="swapDateTo" class="text-dark">Employee Shift Date</label>
         <input
           type="text"
-          id="datepicker"
+          id="datepicker2"
           name="swapDateTo"
           class="form-control"
           placeholder="Enter employee shift date you want to swap"
@@ -121,7 +118,7 @@
       </div>
       <div class="form-group timepicker_div">
         <label for="swapClockInTimeTo" class="text-dark"
-          >Employee Shift Clock-out time</label
+          >Employee Shift Clock-in time</label
         >
         <input
           name="swapClockInTimeTo"

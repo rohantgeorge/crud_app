@@ -65,6 +65,7 @@ route.post("/admin", controller.login);
 route.get("/api/users", controller.find);
 route.get("/api/tickets", controller.findTicket);
 route.put("/api/users/:id", controller.update);
+route.delete("/api/users/:id", controller.delete);
 route.delete("/api/tickets/:id", controller.deleteTicket);
 
 module.exports = route;

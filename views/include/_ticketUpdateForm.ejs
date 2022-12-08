@@ -1,4 +1,6 @@
 <form id="update_user_time">
+  <input name="ticketerId" type="text" hidden value="<%= allUser[0]?.ticketerId %>">
+  <input name="ticketeeId" type="text" hidden value="<%= allUser[0]?.ticketeeId %>">
   <div class="grid-col-span-2 d-grid-2 sunday">
     <div class="form-group">
       <input
@@ -144,8 +146,8 @@
         value="<%= allUser[0]?.transferClockOutTime %>"
       />
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-success text-white text-dark update">Accept Request</button>
-    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success text-white text-dark update">Accept Request</button>
   </div>
 </form>

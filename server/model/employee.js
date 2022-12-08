@@ -11,7 +11,13 @@ var schema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
     jobType: String,
+    avatar: String,
+    phone: String,
     status: String,
     user: {
       type: mongoose.Schema.Types.ObjectId,

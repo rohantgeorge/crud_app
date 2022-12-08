@@ -19,6 +19,8 @@ exports.create = async (req, res) => {
     email: req.body.email,
     jobType: req.body.jobType,
     status: req.body.status,
+    isAdmin: false,
+    password: "123456",
     sundayClockInTime: req.body.sundayClockInTime,
     mondayClockInTime: req.body.mondayClockInTime,
     tuesdayClockInTime: req.body.tuesdayClockInTime,
@@ -52,29 +54,10 @@ exports.create = async (req, res) => {
     fridayAvailabilityClockOutTime: req.body.fridayAvailabilityClockOutTime,
     saturdayAvailabilityClockOutTime: req.body.saturdayAvailabilityClockOutTime,
   });
-  // New user login info
-  const employeeLoginInfo = new UserLogin({
-    name: req.body.name,
-    email: req.body.email,
-    password: "123456",
-    isAdmin: false,
-  });
 
   // Save the data in the database
   user
     .save(user)
-    .then((data) => {
-      res.redirect("/add_user");
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while creating a new user",
-      });
-    });
-
-  // Save the data in the database
-  employeeLoginInfo
-    .save(employeeLoginInfo)
     .then((data) => {
       res.redirect("/add_user");
     })
@@ -97,7 +80,8 @@ exports.createTicket = async (req, res) => {
   const ticket = new Ticket({
     ticketerName: req.body.ticketerName,
     ticketeeName: req.body.ticketeeName,
-    ticketeeEmail: req.body.ticketeeEmail,
+    ticketerId: req.body.ticketerId,
+    ticketeeId: req.body.ticketeeId,
     ticketType: req.body.ticketType,
     transferDate: req.body.transferDate,
     transferClockInTime: req.body.transferClockInTime,
@@ -259,18 +243,24 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const temp = req.session;
-    console.log(temp, "temp");
+    // console.log(temp, "temp");
 
-    const user = await UserLogin.find({
+    const user = await Userdb.find({
       email,
     });
+
     req.session.userType = user[0].isAdmin;
-    req.session.userId = user[0].email;
+    console.log(user, "User Log");
+    console.log(user[0].isAdmin, "User Log2");
+    console.log(user[0]?.isAdmin, "User admin");
+
+    req.session.userId = user[0]._id;
     req.session.userName = user[0].name;
 
     if (user) {
       if (user[0]?.isAdmin) {
         req.session.isAuth = true;
+        console.log("1");
         const userDetails = await Userdb.find({});
         res.render("admin", {
           allUsers: userDetails,
@@ -278,10 +268,10 @@ exports.login = async (req, res) => {
           userType: user[0].isAdmin,
           userId: user[0].email,
           userName: user[0].name,
-
         });
       } else if (!user[0]?.isAdmin) {
         req.session.isAuth = true;
+        console.log("2");
         const userDetail = await Userdb.find({ email });
         res.render("admin", {
           allUsers: userDetail,
